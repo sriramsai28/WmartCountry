@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.sriram.countries.domain.model.CountryListItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding"
+        android:elevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/padding">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#d5e6da"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/countryName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@{country.name + ','+ ' '+ country.region }"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/countryCode"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/countryCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@{country.code}"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/countryName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/countryName"
+                app:layout_constraintTop_toTopOf="@+id/countryName" />
+
+            <TextView
+                android:id="@+id/countryCapital"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding"
+                android:text="@{country.capital}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/countryName"
+                app:layout_constraintTop_toBottomOf="@+id/countryName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
